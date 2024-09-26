@@ -1,5 +1,7 @@
 //problem 1
 
+console.log('problem 01 ------>');
+
 function calculateTax(income, expense){
 	if (income < 0 || expense < 0 || expense > income){
 		return 'Invalid Input'
@@ -47,6 +49,8 @@ console.log(sendNotification('sadia8icloud.com'));
 
 //problem 3
 
+console.log('problem 3---->');
+
 function checkDigitsInName(name) {
 	if(typeof name !== 'string'){
 		return 'Invalid input';
@@ -62,7 +66,7 @@ function checkDigitsInName(name) {
 }
 
 
-console.log(checkDigitsInName('Raj123'));
+console.table(checkDigitsInName('Raj123'));
 console.log(checkDigitsInName('Suman'));
 console.log(checkDigitsInName('Name2024'));
 console.log(checkDigitsInName('!@#'));
@@ -71,7 +75,7 @@ console.log(checkDigitsInName(["Raj"]));
 
 //problem 4
 
-console.log('problem 4');
+console.table('problem 4---->');
 function calculateFinalScore(obj) {
 	if (typeof obj !== 'object' || Array.isArray(obj)){
 		return 'Invalid Input';
@@ -94,7 +98,7 @@ console.log(calculateFinalScore({
 	isFFamily : true }
 	));
 
-console.log(calculateFinalScore({ 
+console.table(calculateFinalScore({ 
 	name: "Rajib", 
 	testScore: 45, 
 	schoolGrade: 25,
@@ -102,9 +106,40 @@ console.log(calculateFinalScore({
 
 console.log(calculateFinalScore("hello"));
 
-console.log(calculateFinalScore({ 
+console.table(calculateFinalScore({ 
 	name: "Rajib", 
 	testScore: 15, 
 	schoolGrade: 25,
 	isFFamily : true }
 	));
+
+
+//problem 05
+console.log('problem 05 ------>');
+
+function waitingTime(waitingTimes , serialNumber) {
+	
+	if(!Array.isArray(waitingTimes) || typeof serialNumber !== 'number'){
+		return 'Invalid Input';
+	}
+
+	let sum = 0;
+	for (let time of waitingTimes){
+		sum += time;
+	}
+
+	let averageTime = Math.round(sum / waitingTimes.length);
+	let personLeft = (serialNumber - 1) - waitingTimes.length;
+
+	let waitingTime = averageTime * personLeft;
+
+	return waitingTime;
+}
+
+console.log(waitingTime([ 3, 5, 7, 11, 6 ], 10));
+console.log(waitingTime([13, 2], 6 ));
+console.log(waitingTime([13, 2, 6, 7, 10], 6));
+console.log(waitingTime([6], 4 ));
+console.log(waitingTime(7 , 10));
+console.log(waitingTime("[6,2]", 9));
+console.log(waitingTime([7, 8, 3, 4, 5], "9"));
