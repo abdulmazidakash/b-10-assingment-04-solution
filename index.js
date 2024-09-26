@@ -44,3 +44,67 @@ console.log(sendNotification('farhan34@yahoo.com'));
 console.log(sendNotification('nadim.naem5@outlook.com'));
 console.log(sendNotification('fahim234.hotmail.com'));
 console.log(sendNotification('sadia8icloud.com'));
+
+//problem 3
+
+function checkDigitsInName(name) {
+	if(typeof name !== 'string'){
+		return 'Invalid input';
+	}
+
+	let nameArr = name.split('');
+	for (let char of nameArr){
+		if (!isNaN(char)){
+			return true;
+		}
+	}
+	return false;
+}
+
+
+console.log(checkDigitsInName('Raj123'));
+console.log(checkDigitsInName('Suman'));
+console.log(checkDigitsInName('Name2024'));
+console.log(checkDigitsInName('!@#'));
+console.log(checkDigitsInName(["Raj"]));
+
+
+//problem 4
+
+console.log('problem 4');
+function calculateFinalScore(obj) {
+	if (typeof obj !== 'object' || Array.isArray(obj)){
+		return 'Invalid Input';
+	}
+
+	let totalScore = obj.testScore + obj.schoolGrade;
+	if(obj.isFFamily){
+		totalScore += 20;
+	}
+
+	return totalScore >= 80 ? true : false;
+
+}
+
+
+console.log(calculateFinalScore({ 
+	name: "Rajib", 
+	testScore: 45, 
+	schoolGrade: 25,
+	isFFamily : true }
+	));
+
+console.log(calculateFinalScore({ 
+	name: "Rajib", 
+	testScore: 45, 
+	schoolGrade: 25,
+	isFFamily : false }));
+
+console.log(calculateFinalScore("hello"));
+
+console.log(calculateFinalScore({ 
+	name: "Rajib", 
+	testScore: 15, 
+	schoolGrade: 25,
+	isFFamily : true }
+	));
